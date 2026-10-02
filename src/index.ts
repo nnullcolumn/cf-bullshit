@@ -60,7 +60,7 @@ export default {
 			target.pathname = `/nnullcolumn/${strip(pathname, gh_path)}`;
 
 			return redirect();
-		} else {
+		} else if (hostname == `bit32.band`) {
 			if (gh_path.test(pathname)) {
 				target.hostname = `github.com`;
 				target.pathname = `/luau-ecs/${strip(pathname, gh_path)}`;
@@ -68,6 +68,8 @@ export default {
 				return redirect();
 			}
 
+			return passthrough();
+		} else {
 			return passthrough();
 		}
 	},
