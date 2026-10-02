@@ -13,6 +13,7 @@ export default {
 			pathname = url.pathname;
 
 		const gh_path = subpath_regex(`gh`);
+		const portainer_path = subpath_regex(`portainer`);
 
 		let target = new URL(url);
 
@@ -34,8 +35,9 @@ export default {
 
 			target.hostname = `kagescripts.online`;
 
-			if (subpath_regex(`portainer`).test(pathname)) {
+			if (portainer_path.test(pathname)) {
 				target.port = `9443`;
+				target.pathname = strip(pathname, portainer_path);
 			}
 
 			return passthrough();
