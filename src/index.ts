@@ -59,13 +59,13 @@ export default {
 			const playground_regex = subpath_regex(`playground`);
 			if (playground_regex.test(pathname)) {
 				target.hostname = `play.luau.org`;
-				target.pathname = `/${strip(pathname, gh_path)}`;
+				target.pathname = `/${strip(pathname, playground_regex)}`;
 			}
 
 			return redirect();
 		} else if (hostname == `nnull.bit32.band`) {
 			target.hostname = `github.com`;
-			target.pathname = `/nnullcolumn/${strip(pathname, gh_path)}`;
+			target.pathname = `/nnullcolumn${pathname}`;
 
 			return redirect();
 		} else if (hostname == `bit32.band`) {
