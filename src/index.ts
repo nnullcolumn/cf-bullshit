@@ -49,34 +49,6 @@ export default {
 			}
 
 			return passthrough();
-		} else if (url.hostname == `google.bit32.band`) {
-			target.hostname = `www.google.com`;
-
-			return redirect();
-		} else if (hostname == `luau.bit32.band`) {
-			target.hostname = `luau.org`;
-
-			const playground_regex = subpath_regex(`playground`);
-			if (playground_regex.test(pathname)) {
-				target.hostname = `play.luau.org`;
-				target.pathname = `/${strip(pathname, playground_regex)}`;
-			}
-
-			return redirect();
-		} else if (hostname == `nnull.bit32.band`) {
-			target.hostname = `github.com`;
-			target.pathname = `/nnullcolumn${pathname}`;
-
-			return redirect();
-		} else if (hostname == `bit32.band`) {
-			if (gh_path.test(pathname)) {
-				target.hostname = `github.com`;
-				target.pathname = `/luau-ecs/${strip(pathname, gh_path)}`;
-
-				return redirect();
-			}
-
-			return passthrough();
 		} else {
 			return passthrough();
 		}
