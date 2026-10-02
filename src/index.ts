@@ -2,6 +2,7 @@ export default {
 	async fetch(request): Promise<Response> {
 		const ORIGIN_MAP = {
 			'google.bit32.band': 'www.google.com',
+			'kage.bit32.band': 'kagescripts.online',
 		};
 
 		const url = new URL(request.url);
