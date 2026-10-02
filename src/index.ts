@@ -1,5 +1,5 @@
 function subpath_regex(name: string) {
-	return new RegExp(`^\/${name}(?=\/|$)/`);
+	return new RegExp(`^/${name}(?:/|$)`);
 }
 
 function strip(pathname: string, regex: RegExp) {
