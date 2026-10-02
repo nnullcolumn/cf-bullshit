@@ -22,6 +22,14 @@ export default {
 		}
 
 		function passthrough() {
+			// TODO: get a real fucking server
+			if (target.host.match(/(?=\.|^)bit32\.band$/)) {
+				target.host = `placeholder.org`;
+				target.pathname = ``;
+
+				return redirect();
+			}
+
 			return fetch(target, request);
 		}
 
