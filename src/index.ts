@@ -45,7 +45,7 @@ export default {
 
 			if (portainer_path.test(pathname)) {
 				target.port = `9443`;
-				target.pathname = strip(pathname, portainer_path);
+				target.pathname = `/${strip(pathname, portainer_path)}`;
 			}
 
 			return passthrough();
